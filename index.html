@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <!-- ========= MY CSS ========= -->
+  <link rel="stylesheet" href="./design/css/style.css">
+  <title>CHAPMONEY</title>
+</head>
+
+<body>
+  <!-- ========= HEADER ========= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">CHAPMONEY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Transfert</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">S'inscrire</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Se connecter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ========= MAIN ========= -->
+  <main class="main">
+    <div class="container">
+      <!-- ========== HOME ========== -->
+      <section class="home mt-3">
+        <div class="card">
+          <div class="card-body d-flex align-items-center justify-content-sm-evenly">
+            <div class="">
+              <h2><span class="services">Serices Transfert d'argent.</h2>
+              <p class="fw-light">Transférer de l'argent en toute <br> <span class="fw-normal">Sécurité</span>, <span class="fw-normal">Rapidité</span> et <span class="fw-normal">Fiablilité</span>.</p>
+              <button type="button" class="btn btn-primary">Transfert
+              </button>
+            </div>
+            <div>
+              <img src="./design/img/1.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="row content">
+        <!-- ========== START FORM ========== -->
+        <section class="first-content col-9 mt-4" id="transfert">
+          <!-- ======== ALERT ========= -->
+          <!-- <div id="alert"></div> -->
+          <form class="card card-form p-3 mb-4">
+            <!-- Principal -->
+            <div class="row form">
+              <!-- =============== EXPEDITEUR ================== -->
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>EXPÉDITEUR</h5>
+                  </div>
+                  <div class="card-body">
+                    <!-- Nom Exp -->
+                    <div class="mb-3">
+                      <i class="uil uil-user-md"></i>
+                      <label for="" class="form-label">Nom expéditeur</label>
+                      <input type="text" class="form-control nameExp xyz" id="" placeholder="Jean Ivan" required>
+                    </div>
+                    <!-- Choix du pays -->
+                    <div class="mb-3">
+                      <i class="uil uil-globe"></i>
+                      <label for="" class="form-label">Pays</label>
+                      <select class="form-select" id="country" required>
+                        <option value="">--Selectionner votre Pays--</option>
+                        <option value="russie">Russie</option>
+                        <option value="benin">Bénin</option>
+                        <option value="congo">Congo Brazaville</option>
+                        <option value="civ">Côte d'Ivoire</option>
+                        <option value="gabon">Gabon</option>
+                        <option value="guinee">Guinée</option>
+                        <option value="mali">Mali</option>
+                        <option value="niger">Niger</option>
+                        <option value="senegal">Sénégal</option>
+                      </select>
+                    </div>
+                    <!-- Mode d'envoi -->
+                    <div class="mb-3">
+                      <i class="uil uil-signal"></i>
+                      <label for="" class="form-label">Mode d'envoi</label>
+                      <select class="form-select" id="modeSend">
+                        <option>Choisir obligatoirement un pays</option>
+                      </select>
+                    </div>
+                    <!-- Tel Number -->
+                    <div class="mb-3">
+                      <i class="uil uil-mobile-android-alt"></i>
+                      <label for="" class="form-label">N° téléphone</label>
+                      <div class="row">
+                        <div class="col-4 countryNumber">
+                          <select class="form-select" id="phone">
+                            <option value="">N° Code</option>
+                          </select>
+                        </div>
+                        <div class="col-8">
+                          <input type="text" class="form-control numberTel xyz" placeholder="+10 000 00 00 00" id="phoneNumber"
+                            required>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Montant -->
+                    <div>
+                      <i class="uil uil-money-insert"></i>
+                      <label for="" class="form-label">Montant à expédier</label>
+                      <div class="input-group">
+                        <input type="number" class="form-control montant currency amount xyz" id="montant" required disabled>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text xof" id="xof">XOF</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ================ BENEFICIAIRE ================= -->
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>BENEFICIAIRE</h5>
+                  </div>
+                  <div class="card-body">
+                    <!-- Nom du benef -->
+                    <div class="mb-3">
+                      <i class="uil uil-user-md"></i>
+                      <label for="" class="form-label">Nom du bénéficiaire</label>
+                      <input type="text" class="form-control nameBenef" id="" placeholder="Caroline" required>
+                    </div>
+                    <!-- Country -->
+                    <div class="mb-3">
+                      <i class="uil uil-globe"></i>
+                      <label for="" class="form-label">Pays</label>
+                      <select class="form-select " id="country2" required>
+                        <option value="">--Selectionner votre Pays--</option>
+                        <option value="russie">Russie</option>
+                        <option value="benin">Bénin</option>
+                        <option value="congo">Congo Brazaville</option>
+                        <option value="civ">Côte d'Ivoire</option>
+                        <option value="gabon">Gabon</option>
+                        <option value="guinee">Guinée</option>
+                        <option value="mali">Mali</option>
+                        <option value="niger">Niger</option>
+                        <option value="senegal">Sénégal</option>
+                      </select>
+                    </div>
+                    <!-- Mode Send -->
+                    <div class="">
+                      <div class="col mb-3 w-100">
+                        <i class="uil uil-signal"></i>
+                        <label for="" class="form-label">Mode d'envoi</label>
+                        <select class="form-select" id="modeSend2">
+                          <option>Choisir obligatoirement un pays</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Number Phone -->
+                    <div class="mb-3">
+                      <i class="uil uil-mobile-android-alt"></i>
+                      <label for="" class="form-label">N° téléphone</label>
+                      <div class="row">
+                        <div class="col-4 countryNumber">
+                          <select class="form-select" id="phone2">
+                            <option value="">N° Code</option>
+                          </select>
+                        </div>
+                        <div class="col-8">
+                          <input type="text" class="form-control numberTelBenef" placeholder="+10 000 00 00 00" id="phoneNumber2" required>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Total money receveid -->
+                    <div>
+                      <i class="uil uil-money-withdraw"></i>
+                      <label for="" class="form-label">Somme à recevoir</label>
+                      <div class="input-group">
+                        <div type="number" class="form-control" id="total"></div>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text xof" id="xof2">XOF</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Submit Form -->
+            <div class="d-grid mt-3">
+              <button class="btn btn-success" id="check" type="submit">VALIDER</button>
+            </div>
+          </form>
+        </section>
+        <!-- ========== END FORM ========== -->
+
+        <!-- ========== START CONVERTION ========== -->
+        <section class="second-content col-3  mt-4 convertion">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="uil uil-refresh"></i>
+                <span>Conversion</span>
+              </div>
+              <!-- Sum to convert -->
+              <input type="number" class="form-control" placeholder="Somme">
+              <!-- Options -->
+              <div class="row mt-3 d-flex align-items-center justify-content-between">
+                <div class="col-5">
+                  <select class="form-select" name="" id="">
+                    <option value="">RUB</option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <i class="uil uil-exchange-alt"></i>
+                </div>
+                <div class="col-5">
+                  <select class="form-select" name="" id="">
+                    <option value="">FCFA</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-3 result" id="result">5 000 RUB = 5 235 FCFA</div>
+              <button type="button" class="btn btn-primary mt-3 w-100">Convertir</button>
+            </div>
+          </div>
+        </section>
+        <!-- ========== END CONVERTION ========== -->
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="./design/phone/cleave.min.js"></script>
+  <script src="./design/phone/cleave-phone.i18n.js"></script>
+  <!-- ======= MON JS ======= -->
+  <script src="./design/js/script.js"></script>
+</body>
+
+</html>

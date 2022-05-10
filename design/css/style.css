@@ -1,0 +1,120 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f6f7;
+}
+
+.home h2 {
+  font-size: 2.5rem;
+  /* text-transform: uppercase; */
+  line-height: 1;
+  font-weight: bolder;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.active {
+  color: #2980b9 !important;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+label {
+  font-weight: 700;
+  font-size: .9rem;
+  color: #2980b9;
+}
+
+.total {
+  font-weight: 500;
+}
+
+.card-form {
+  background-color: rgba(0,0,0,0.05);
+}
+
+i {
+  font-size: 1.3rem;
+  color: #2980b9;
+}
+
+img {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+
+.description p {
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.description div {
+  margin-right: 1rem;
+}
+
+.description i {
+  color: #27ae60;
+  padding-right: .2rem;
+}
+
+.convertion span {
+  font-weight: 600;
+  margin-left: .3rem;
+  font-size: 1.2rem;
+}
+
+.convertion .uil-refresh {
+  background-color: #2980b9;
+  color: white;
+  border-radius: .5rem;
+  padding: .3rem .5rem;
+  font-size: 1.1rem;
+}
+
+.convertion .uil-exchange-alt {
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.result {
+  font-size: 1.100rem;
+}
+
+.xof {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1000px) {
+  .home .card-body {
+    flex-direction: column;
+  }
+  
+  .first-content {
+    width: 100%;
+  }
+
+  .second-content {
+    width: 100%;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
