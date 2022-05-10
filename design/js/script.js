@@ -35,17 +35,6 @@ const xof2 = document.getElementById('xof2')
 // Tel Number
 const phoneNumber = document.getElementById('phone')
 const phoneNumber2 = document.getElementById('phone2')
-// Redirect
-const redicet = document.getElementById('check')
-const nameExp = document.querySelector('.nameExp')
-const numberTelExp = document.querySelector('.numberTel')
-const nameBenef = document.querySelector('.nameBenef')
-const numberTelBenef = document.querySelector('.numberTelBenef')
-const amount = document.querySelector('.amount')
-
-console.log(numberTelBenef);
-
-
 
 // ==================== Event Listener Expediteur ==================== //
 count.addEventListener('change', function() {
@@ -155,6 +144,16 @@ phoneNumber2.addEventListener('change', function() {
 })
 
 // ============= Redirect Pages ============ //
+// Redirect
+const redicet = document.getElementById('check')
+const nameExp = document.querySelector('.nameExp')
+const numberTelExp = document.querySelector('.numberTel')
+const nameBenef = document.querySelector('.nameBenef')
+const numberTelBenef = document.querySelector('.numberTelBenef')
+const amount = document.querySelector('.amount')
+
+// const country
+
 redicet.addEventListener('click', checkPage)
 
 function showAlert(message) {
@@ -186,6 +185,16 @@ function checkPage (e) {
       showAlert('Veuillez renseigner tous les champs')
     }
   } else {
+    let sessNameExp = nameExp.value
+    let sessCountryExp = count.options[count.selectedIndex].text
+    let sessModeExp = mode.options[mode.selectedIndex].text
+
+    console.log(sessModeExp);
+
+    sessionStorage.setItem('NAME', sessNameExp)
+    sessionStorage.setItem('COUNTRY', sessCountryExp)
+    sessionStorage.setItem('MODE', sessModeExp)
+
     window.location = 'check.html'
   }
 }

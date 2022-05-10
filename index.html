@@ -17,7 +17,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">CHAPMONEY</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -44,7 +45,8 @@
           <div class="card-body d-flex align-items-center justify-content-sm-evenly">
             <div class="">
               <h2><span class="services">Serices Transfert d'argent.</h2>
-              <p class="fw-light">Transférer de l'argent en toute <br> <span class="fw-normal">Sécurité</span>, <span class="fw-normal">Rapidité</span> et <span class="fw-normal">Fiablilité</span>.</p>
+              <p class="fw-light">Transférer de l'argent en toute <br> <span class="fw-normal">Sécurité</span>, <span
+                  class="fw-normal">Rapidité</span> et <span class="fw-normal">Fiablilité</span>.</p>
               <button type="button" class="btn btn-primary">Transfert
               </button>
             </div>
@@ -59,8 +61,7 @@
         <!-- ========== START FORM ========== -->
         <section class="first-content col-9 mt-4" id="transfert">
           <!-- ======== ALERT ========= -->
-          <!-- <div id="alert"></div> -->
-          <form class="card card-form p-3 mb-4">
+          <form action="check.html" method="GET" class="card card-form p-3 mb-4">
             <!-- Principal -->
             <div class="row form">
               <!-- =============== EXPEDITEUR ================== -->
@@ -70,13 +71,13 @@
                     <h5>EXPÉDITEUR</h5>
                   </div>
                   <div class="card-body">
-                    <!-- Nom Exp -->
+                    <!-- Name Exp -->
                     <div class="mb-3">
                       <i class="uil uil-user-md"></i>
                       <label for="" class="form-label">Nom expéditeur</label>
-                      <input type="text" class="form-control nameExp xyz" id="" placeholder="Jean Ivan" required>
+                      <input type="text" class="form-control nameExp" name="nameExp" id="nameExp" required>
                     </div>
-                    <!-- Choix du pays -->
+                    <!-- Choose Country -->
                     <div class="mb-3">
                       <i class="uil uil-globe"></i>
                       <label for="" class="form-label">Pays</label>
@@ -112,8 +113,8 @@
                           </select>
                         </div>
                         <div class="col-8">
-                          <input type="text" class="form-control numberTel xyz" placeholder="+10 000 00 00 00" id="phoneNumber"
-                            required>
+                          <input type="text" class="form-control numberTel" placeholder="+10 000 00 00 00"
+                            id="phoneNumber" required>
                         </div>
                       </div>
                     </div>
@@ -122,7 +123,8 @@
                       <i class="uil uil-money-insert"></i>
                       <label for="" class="form-label">Montant à expédier</label>
                       <div class="input-group">
-                        <input type="number" class="form-control montant currency amount xyz" id="montant" required disabled>
+                        <input type="number" class="form-control montant currency amount xyz" id="montant" required
+                          disabled>
                         <div class="input-group-prepend">
                           <span class="input-group-text xof" id="xof">XOF</span>
                         </div>
@@ -183,7 +185,8 @@
                           </select>
                         </div>
                         <div class="col-8">
-                          <input type="text" class="form-control numberTelBenef" placeholder="+10 000 00 00 00" id="phoneNumber2" required>
+                          <input type="text" class="form-control numberTelBenef" placeholder="+10 000 00 00 00"
+                            id="phoneNumber2" required>
                         </div>
                       </div>
                     </div>

@@ -1,0 +1,26 @@
+body {
+  background-color: #f1f2f4;
+}
+
+label, i {
+  color: #2980b9;
+}
+
+i {
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 780px) {
+  .card {
+    margin-bottom: 2rem;
+  }
+  
+  .exp {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .benef {
+    width: 100%;
+  }
+}
