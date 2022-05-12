@@ -25,24 +25,39 @@ const xof2 = document.getElementById('xof2')
 count.addEventListener('change', function() {
   // Select Value
   let selectOption = modeTransfert[this.value]
-  // let numRegion = phoneRegion[this.value]
 
   // Change Money XOF
   if (count.value == 'russie' && count) {
     xof.innerText = 'RUB'
     mode.disabled = true
     phoneNumber.disabled = true
+    montant.disabled = true
+    total.disabled = true
+    count2.disabled = true
+    mode2.disabled = true
+    redicet.disabled = true
     document.querySelector('.numberTel').disabled = true
     document.querySelector('.nameExp').disabled = true
-    montant.disabled = true
-    showAlert('Les transferts depuis la Russie sont momentairement intérrompus')
+    document.querySelector('.nameBenef').disabled = true
+    document.querySelector('.numberTelBenef').disabled = true
+
+
+    showAlert(`
+      Les transferts depuis la Russie sont momentairement intérrompus.
+      Pour en effectuer d'urgence, contacter le
+    `)
   } else {
     xof.innerText = 'FCFA'
     mode.disabled = false
     phoneNumber.disabled = false
     document.querySelector('.numberTel').disabled = false
     document.querySelector('.nameExp').disabled = false
+    document.querySelector('.nameBenef').disabled = false
+    document.querySelector('.numberTelBenef').disabled = false
     montant.disabled = false
+    count2.disabled = false
+    mode2.disabled = false
+    redicet.disabled = false
   }
   
   // Remove old selection
@@ -62,7 +77,6 @@ count.addEventListener('change', function() {
 count2.addEventListener('change', function() {
   // Select Value
   let selectOption = modeTransfert[this.value]
-  // let numRegion = phoneRegion[this.value]
   
   // Mode Send
   while(mode2.options.length > 0) {
