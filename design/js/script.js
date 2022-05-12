@@ -160,12 +160,14 @@ function checkPage (e) {
     let sessModeExp = mode.options[mode.selectedIndex].text
     let sessNumberTelExp = numberTelExp.value
     let sessAmountExp = amount.value
+    let sessXofExp = xof.innerText
 
     sessionStorage.setItem('NAME', sessNameExp)
     sessionStorage.setItem('COUNTRY', sessCountryExp)
     sessionStorage.setItem('MODE', sessModeExp)
     sessionStorage.setItem('PHONE', sessNumberTelExp)
     sessionStorage.setItem('AMOUNT', sessAmountExp)
+    sessionStorage.setItem('XOF', sessXofExp)
 
     // Beneficiaire
     let sessNameBenef = nameBenef.value
@@ -173,14 +175,14 @@ function checkPage (e) {
     let sessModeBenef = mode2.options[mode2.selectedIndex].text
     let sessNumberTeBenef = numberTelBenef.value
     let sessAmountBenef = total.innerText
-
-    console.log(sessAmountBenef);
+    let sessXofBenef = xof2.innerText
 
     sessionStorage.setItem('NAME-BENEF', sessNameBenef)
     sessionStorage.setItem('COUNTRY-BENEF', sessCountryBenef)
     sessionStorage.setItem('MODE-BENEF', sessModeBenef)
     sessionStorage.setItem('PHONE-BENEF', sessNumberTeBenef)
     sessionStorage.setItem('AMOUNT-BENEF', sessAmountBenef)
+    sessionStorage.setItem('XOF-BENEF', sessXofBenef)
 
     window.location = 'check.html'
   }
