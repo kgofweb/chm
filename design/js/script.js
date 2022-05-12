@@ -10,18 +10,6 @@ const modeTransfert = {
   congo: ['AIRTEL Mobile Money', 'MTN Mobile Money']
 }
 
-const phoneRegion = {
-  russie: ['RUS'],
-  benin: ['BEN'],
-  civ: ['CIV'],
-  senegal: ['SEN'],
-  gabon: ['GAB'],
-  congo: ['CGB'],
-  guinee: ['GIN'],
-  mali: ['MLI'],
-  niger: ['NER'],
-}
-
 // ==================== DOM Elements ==================== //
 const count = document.getElementById('country')
 const count2 = document.getElementById('country2')
@@ -32,37 +20,34 @@ const montant = document.getElementById('montant')
 const total = document.getElementById('total')
 const xof = document.getElementById('xof')
 const xof2 = document.getElementById('xof2')
-// Tel Number
-const phoneNumber = document.getElementById('phone')
-const phoneNumber2 = document.getElementById('phone2')
 
 // ==================== Event Listener Expediteur ==================== //
 count.addEventListener('change', function() {
   // Select Value
   let selectOption = modeTransfert[this.value]
-  let numRegion = phoneRegion[this.value]
+  // let numRegion = phoneRegion[this.value]
 
   // Change Money XOF
-  if (count.value == 'russie') {
+  if (count.value == 'russie' && count) {
     xof.innerText = 'RUB'
+    mode.disabled = true
+    phoneNumber.disabled = true
+    document.querySelector('.numberTel').disabled = true
+    document.querySelector('.nameExp').disabled = true
+    montant.disabled = true
+    showAlert('Les transferts depuis la Russie sont momentairement intérrompus')
   } else {
     xof.innerText = 'FCFA'
-  }
-
-  // Active input money
-  if (count) {
+    mode.disabled = false
+    phoneNumber.disabled = false
+    document.querySelector('.numberTel').disabled = false
+    document.querySelector('.nameExp').disabled = false
     montant.disabled = false
-  } else {
-    montant.disabled = true
   }
   
   // Remove old selection
   while(mode.options.length > 0) {
     mode.options.remove(0)
-  }
-  // Phone Region
-  while(phoneNumber.options.length > 0) {
-    phoneNumber.options.remove(0)
   }
 
   // From transfert mode table
@@ -71,38 +56,22 @@ count.addEventListener('change', function() {
     // Append child
     mode.appendChild(option)
   })
-  // Phone Region
-  Array.from(numRegion).forEach(function(el) {
-    let option = new Option(el, el)
-
-    phoneNumber.appendChild(option)
-  })
 })
 
 // ================= Event Listener Béneficiaire ================= //
 count2.addEventListener('change', function() {
   // Select Value
   let selectOption = modeTransfert[this.value]
-  let numRegion = phoneRegion[this.value]
+  // let numRegion = phoneRegion[this.value]
   
   // Mode Send
   while(mode2.options.length > 0) {
     mode2.options.remove(0)
   }
-  // Phone Region
-  while(phoneNumber2.options.length > 0) {
-    phoneNumber2.options.remove(0)
-  }
 
   Array.from(selectOption).forEach(function(el) {
     let option = new Option(el, el)
     mode2.appendChild(option)
-  })
-  // Phone Region
-  Array.from(numRegion).forEach(function(el) {
-    let option = new Option(el, el)
-
-    phoneNumber2.appendChild(option)
   })
 
   // Change Money XOF
@@ -152,8 +121,6 @@ const nameBenef = document.querySelector('.nameBenef')
 const numberTelBenef = document.querySelector('.numberTelBenef')
 const amount = document.querySelector('.amount')
 
-// const country
-
 redicet.addEventListener('click', checkPage)
 
 function showAlert(message) {
@@ -164,36 +131,42 @@ function showAlert(message) {
   const form = document.querySelector('form')
   transfert.insertBefore(div, form)
 
-  setTimeout(() => document.querySelector('.alert').remove(), 3000);
+  setTimeout(() => document.querySelector('.alert').remove(), 3500);
 }
 
 function checkPage (e) {
   e.preventDefault()
 
   if(nameExp.value == '' || numberTelExp.value == '' || nameBenef.value == '' || numberTelBenef.value == '' || amount.value == '') {
-    if(nameExp.value == '') {
-      showAlert('Renseigner le nom de expéditeur...')
-    } else if(numberTelExp.value == '') {
-      showAlert('Renseigner le numéro de téléphone de l\'expéditeur...')
-    } else if(amount.value == '') {
-      showAlert('Renseigner le montant')
-    } else if (nameBenef.value == '') {
-      showAlert('Renseigner le nom du bénéficiaire...')
-    } else if (numberTelBenef.value == '') {
-      showAlert('Renseigner le numéro de téléphone du bénéficiaire...')
-    } else {
-      showAlert('Veuillez renseigner tous les champs')
-    }
+    showAlert('Veuillez renseigner tous les champs')
   } else {
+    // Expéditeur
     let sessNameExp = nameExp.value
     let sessCountryExp = count.options[count.selectedIndex].text
     let sessModeExp = mode.options[mode.selectedIndex].text
-
-    console.log(sessModeExp);
+    let sessNumberTelExp = numberTelExp.value
+    let sessAmountExp = amount.value
 
     sessionStorage.setItem('NAME', sessNameExp)
     sessionStorage.setItem('COUNTRY', sessCountryExp)
     sessionStorage.setItem('MODE', sessModeExp)
+    sessionStorage.setItem('PHONE', sessNumberTelExp)
+    sessionStorage.setItem('AMOUNT', sessAmountExp)
+
+    // Beneficiaire
+    let sessNameBenef = nameBenef.value
+    let sessCountryBenef = count2.options[count2.selectedIndex].text
+    let sessModeBenef = mode2.options[mode2.selectedIndex].text
+    let sessNumberTeBenef = numberTelBenef.value
+    let sessAmountBenef = total.innerText
+
+    console.log(sessAmountBenef);
+
+    sessionStorage.setItem('NAME-BENEF', sessNameBenef)
+    sessionStorage.setItem('COUNTRY-BENEF', sessCountryBenef)
+    sessionStorage.setItem('MODE-BENEF', sessModeBenef)
+    sessionStorage.setItem('PHONE-BENEF', sessNumberTeBenef)
+    sessionStorage.setItem('AMOUNT-BENEF', sessAmountBenef)
 
     window.location = 'check.html'
   }

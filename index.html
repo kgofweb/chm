@@ -60,8 +60,8 @@
       <div class="row content">
         <!-- ========== START FORM ========== -->
         <section class="first-content col-9 mt-4" id="transfert">
-          <!-- ======== ALERT ========= -->
-          <form action="check.html" method="GET" class="card card-form p-3 mb-4">
+          <!-- ======== ALERT TOAST ========= -->
+          <form action="check.html" method="POST" class="card card-form p-3 mb-4">
             <!-- Principal -->
             <div class="row form">
               <!-- =============== EXPEDITEUR ================== -->
@@ -107,12 +107,7 @@
                       <i class="uil uil-mobile-android-alt"></i>
                       <label for="" class="form-label">N° téléphone</label>
                       <div class="row">
-                        <div class="col-4 countryNumber">
-                          <select class="form-select" id="phone">
-                            <option value="">N° Code</option>
-                          </select>
-                        </div>
-                        <div class="col-8">
+                        <div class="col">
                           <input type="text" class="form-control numberTel" placeholder="+10 000 00 00 00"
                             id="phoneNumber" required>
                         </div>
@@ -141,14 +136,25 @@
                     <h5>BENEFICIAIRE</h5>
                   </div>
                   <div class="card-body">
+                    <!-- Total money receveid -->
+                    <div>
+                      <i class="uil uil-money-withdraw"></i>
+                      <label for="" class="form-label">Somme à recevoir</label>
+                      <div class="input-group">
+                        <div class="form-control" id="total"></div>
+                        <div class="input-group-prepend">
+                          <span class="input-group-text xof" id="xof2">XOF</span>
+                        </div>
+                      </div>
+                    </div>
                     <!-- Nom du benef -->
-                    <div class="mb-3">
+                    <div class="mt-3">
                       <i class="uil uil-user-md"></i>
                       <label for="" class="form-label">Nom du bénéficiaire</label>
-                      <input type="text" class="form-control nameBenef" id="" placeholder="Caroline" required>
+                      <input type="text" class="form-control nameBenef" required>
                     </div>
                     <!-- Country -->
-                    <div class="mb-3">
+                    <div class="mt-3">
                       <i class="uil uil-globe"></i>
                       <label for="" class="form-label">Pays</label>
                       <select class="form-select " id="country2" required>
@@ -165,7 +171,7 @@
                       </select>
                     </div>
                     <!-- Mode Send -->
-                    <div class="">
+                    <div class="mt-3">
                       <div class="col mb-3 w-100">
                         <i class="uil uil-signal"></i>
                         <label for="" class="form-label">Mode d'envoi</label>
@@ -175,29 +181,13 @@
                       </div>
                     </div>
                     <!-- Number Phone -->
-                    <div class="mb-3">
+                    <div>
                       <i class="uil uil-mobile-android-alt"></i>
                       <label for="" class="form-label">N° téléphone</label>
                       <div class="row">
-                        <div class="col-4 countryNumber">
-                          <select class="form-select" id="phone2">
-                            <option value="">N° Code</option>
-                          </select>
-                        </div>
-                        <div class="col-8">
+                        <div class="col">
                           <input type="text" class="form-control numberTelBenef" placeholder="+10 000 00 00 00"
                             id="phoneNumber2" required>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Total money receveid -->
-                    <div>
-                      <i class="uil uil-money-withdraw"></i>
-                      <label for="" class="form-label">Somme à recevoir</label>
-                      <div class="input-group">
-                        <div type="number" class="form-control" id="total"></div>
-                        <div class="input-group-prepend">
-                          <span class="input-group-text xof" id="xof2">XOF</span>
                         </div>
                       </div>
                     </div>
