@@ -1,3 +1,12 @@
+// ============ LOADER ================ //
+const load = document.getElementById('load')
+
+onload = () => {
+  setTimeout(() => {
+    load.style.display = 'none'
+  }, 2200)
+}
+
 const modeTransfert = {
   russie: ['SberBank', 'Tinkoff', 'VTB', 'Autre'],
   civ: ['Orange Money', 'Moov Money', 'Wave Money', 'MTN Mobile Money'],
@@ -22,7 +31,7 @@ const xof = document.getElementById('xof')
 const xof2 = document.getElementById('xof2')
 
 // ==================== Event Listener Expediteur ==================== //
-count.addEventListener('change', function() {
+count.addEventListener('change', function () {
   // Select Value
   let selectOption = modeTransfert[this.value]
 
@@ -41,32 +50,30 @@ count.addEventListener('change', function() {
     document.querySelector('.nameBenef').disabled = true
     document.querySelector('.numberTelBenef').disabled = true
 
-
-    showAlert(`
+    showModal(`
       Les transferts depuis la Russie sont momentairement intérrompus.
-      Pour en effectuer d'urgence, contacter le
     `)
   } else {
     xof.innerText = 'FCFA'
-    mode.disabled = false
-    phoneNumber.disabled = false
     document.querySelector('.numberTel').disabled = false
     document.querySelector('.nameExp').disabled = false
     document.querySelector('.nameBenef').disabled = false
     document.querySelector('.numberTelBenef').disabled = false
+    mode.disabled = false
+    phoneNumber.disabled = false
     montant.disabled = false
     count2.disabled = false
     mode2.disabled = false
     redicet.disabled = false
   }
-  
+
   // Remove old selection
-  while(mode.options.length > 0) {
+  while (mode.options.length > 0) {
     mode.options.remove(0)
   }
 
   // From transfert mode table
-  Array.from(selectOption).forEach(function(el) {
+  Array.from(selectOption).forEach(function (el) {
     let option = new Option(el, el)
     // Append child
     mode.appendChild(option)
@@ -74,16 +81,16 @@ count.addEventListener('change', function() {
 })
 
 // ================= Event Listener Béneficiaire ================= //
-count2.addEventListener('change', function() {
+count2.addEventListener('change', function () {
   // Select Value
   let selectOption = modeTransfert[this.value]
-  
+
   // Mode Send
-  while(mode2.options.length > 0) {
+  while (mode2.options.length > 0) {
     mode2.options.remove(0)
   }
 
-  Array.from(selectOption).forEach(function(el) {
+  Array.from(selectOption).forEach(function (el) {
     let option = new Option(el, el)
     mode2.appendChild(option)
   })
@@ -111,7 +118,7 @@ let cleave = new Cleave('#phoneNumber', {
   phone: true,
   phoneRegionCode: 'RUS'
 })
-phoneNumber.addEventListener('change', function() {
+phoneNumber.addEventListener('change', function () {
   cleave.setPhoneRegionCode(this.value)
   cleave.setRawValue('')
 })
@@ -121,7 +128,7 @@ let cleave2 = new Cleave('#phoneNumber2', {
   phone: true,
   phoneRegionCode: 'RUS'
 })
-phoneNumber2.addEventListener('change', function() {
+phoneNumber2.addEventListener('change', function () {
   cleave2.setPhoneRegionCode(this.value)
   cleave2.setRawValue('')
 })
@@ -137,22 +144,44 @@ const amount = document.querySelector('.amount')
 
 redicet.addEventListener('click', checkPage)
 
-function showAlert(message) {
-  const div = document.createElement('div')
-  div.className = `alert alert-warning`
-  div.appendChild(document.createTextNode(message))
-  const transfert = document.getElementById('transfert')
-  const form = document.querySelector('form')
-  transfert.insertBefore(div, form)
+let modalWrap = null;
 
-  setTimeout(() => document.querySelector('.alert').remove(), 3500);
+const showModal = (message) => {
+  if (modalWrap !== null) {
+    modalWrap.remove();
+  }
+
+  modalWrap = document.createElement('div');
+  modalWrap.innerHTML = `
+    <div class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-light">
+            <h4 style='display: flex; align-items: center; justify-content: center;' class="modal-title">
+              <i style='color: #ff7675; font-size: 3rem; margin-right: .5rem' class="uil uil-annoyed"></i>
+              <span style='color: #222'>Oupss...</span>
+            </h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>${message}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.append(modalWrap);
+  const modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+  modal.show();
 }
 
-function checkPage (e) {
+function checkPage(e) {
   e.preventDefault()
 
-  if(nameExp.value == '' || numberTelExp.value == '' || nameBenef.value == '' || numberTelBenef.value == '' || amount.value == '') {
-    showAlert('Veuillez renseigner tous les champs')
+  if (nameExp.value == '' || numberTelExp.value == '' || nameBenef.value == '' || numberTelBenef.value == '' || amount.value == '') {
+    // showAlert('Veuillez renseigner tous les champs')
+    showModal('Veuillez renseigner tous les champs')
   } else {
     // Expéditeur
     let sessNameExp = nameExp.value
@@ -187,3 +216,12 @@ function checkPage (e) {
     window.location = 'check.html'
   }
 }
+
+// ============== Scroll Reveal ============== //
+const sr = ScrollReveal({
+  distance: '100px',
+  duration: 4000,
+})
+
+sr.reveal(`.home`, { origin: 'top', delay: 300 })
+sr.reveal(`#transfert`, { origin: 'bottom', delay: 500 })
