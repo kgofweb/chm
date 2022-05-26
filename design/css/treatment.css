@@ -1,0 +1,54 @@
+body {
+  background-color: #dee2e6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: #fff;
+}
+
+.loader img {
+  width: 50%;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.countdown .min {
+  margin-right: 2rem;
+  border-radius: 5%;
+}
+.countdown .min h2 {
+  color: #10ac84;
+}
+.countdown .min > span,
+.countdown .sec > span {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: smaller;
+}
+.countdown .sec {
+  border-radius: 5%;
+}
+.countdown .sec h2 {
+  color: #ff7675;
+}

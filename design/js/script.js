@@ -1,11 +1,11 @@
 // ============ LOADER ================ //
-const load = document.getElementById('load')
+// const load = document.getElementById('load')
 
-onload = () => {
-  setTimeout(() => {
-    load.style.display = 'none'
-  }, 2200)
-}
+// onload = () => {
+//   setTimeout(() => {
+//     load.style.display = 'none'
+//   }, 2200)
+// }
 
 const modeTransfert = {
   russie: ['SberBank', 'Tinkoff', 'VTB', 'Autre'],
@@ -30,7 +30,9 @@ const total = document.getElementById('total')
 const xof = document.getElementById('xof')
 const xof2 = document.getElementById('xof2')
 
-// ==================== Event Listener Expediteur ==================== //
+console.log(montant);
+
+// ==================== Event Listener Sender ==================== //
 count.addEventListener('change', function () {
   // Select Value
   let selectOption = modeTransfert[this.value]
@@ -67,6 +69,28 @@ count.addEventListener('change', function () {
     redicet.disabled = false
   }
 
+  // Conversion Rate
+  if (count.value == 'civ') {
+    let rate = .0912
+
+    montant.addEventListener('input', () => {
+      // Get user input
+      const userInputValue = montant.value
+      const totalMoney = new Intl.NumberFormat().format(userInputValue * rate)
+    
+      total.innerHTML = `<b>${totalMoney}</b>`
+    })
+  } else if (count.value == 'guinee') {
+    let rate = .0400
+    montant.addEventListener('input', () => {
+      // Get user input
+      const userInputValue = montant.value
+      const totalMoney = new Intl.NumberFormat().format(userInputValue * rate)
+    
+      total.innerHTML = `<b>${totalMoney}</b>`
+    })
+  }
+
   // Remove old selection
   while (mode.options.length > 0) {
     mode.options.remove(0)
@@ -80,7 +104,7 @@ count.addEventListener('change', function () {
   })
 })
 
-// ================= Event Listener Béneficiaire ================= //
+// ================= Event Listener Receiver ================= //
 count2.addEventListener('change', function () {
   // Select Value
   let selectOption = modeTransfert[this.value]
@@ -104,14 +128,14 @@ count2.addEventListener('change', function () {
 })
 
 // ======= Algorithm Convertion Money ========= //
-let taux = 0.111
-montant.addEventListener('input', () => {
-  // Get user input
-  const userInputValue = montant.value
-  const totalMoney = new Intl.NumberFormat().format(userInputValue * taux)
+// let taux = 0.111
+// montant.addEventListener('input', () => {
+//   // Get user input
+//   const userInputValue = montant.value
+//   const totalMoney = new Intl.NumberFormat().format(userInputValue * taux)
 
-  total.innerHTML = `<b>${totalMoney}</b>`
-})
+//   total.innerHTML = `<b>${totalMoney}</b>`
+// })
 
 // ============ Management Phone Number 1 ============== //
 let cleave = new Cleave('#phoneNumber', {
@@ -134,7 +158,6 @@ phoneNumber2.addEventListener('change', function () {
 })
 
 // ============= Redirect Pages ============ //
-// Redirect
 const redicet = document.getElementById('check')
 const nameExp = document.querySelector('.nameExp')
 const numberTelExp = document.querySelector('.numberTel')
@@ -144,8 +167,8 @@ const amount = document.querySelector('.amount')
 
 redicet.addEventListener('click', checkPage)
 
+// =============== Error Indication ================= //
 let modalWrap = null;
-
 const showModal = (message) => {
   if (modalWrap !== null) {
     modalWrap.remove();
@@ -175,12 +198,11 @@ const showModal = (message) => {
   const modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
   modal.show();
 }
-
+// ============ Verification =============== //
 function checkPage(e) {
   e.preventDefault()
 
   if (nameExp.value == '' || numberTelExp.value == '' || nameBenef.value == '' || numberTelBenef.value == '' || amount.value == '') {
-    // showAlert('Veuillez renseigner tous les champs')
     showModal('Veuillez renseigner tous les champs')
   } else {
     // Expéditeur
@@ -219,8 +241,8 @@ function checkPage(e) {
 
 // ============== Scroll Reveal ============== //
 const sr = ScrollReveal({
-  distance: '100px',
-  duration: 4000,
+  distance: '90px',
+  duration: 2000,
 })
 
 sr.reveal(`.home`, { origin: 'top', delay: 300 })

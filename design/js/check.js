@@ -1,4 +1,23 @@
+const fullDate = document.getElementById('date')
+const fullTime = document.getElementById('time')
+
 window.addEventListener('load', () => {
+  // Set Date and Time
+  let today = new Date()
+  let month = today.getMonth() + 1;
+  let year = today.getFullYear();
+  let date = today.getDate();
+
+  let currentDate = `${date}/${month}/${year}`
+  fullDate.innerText = currentDate
+
+  let hours = addZero(today.getHours());
+  let minutes = addZero(today.getMinutes());
+
+  let currentTime = `${hours}:${minutes}`
+  fullTime.innerText = currentTime
+
+
   // Expéditeur
   const nameExp = sessionStorage.getItem('NAME')
   const sessCountryExp = sessionStorage.getItem('COUNTRY')
@@ -29,12 +48,13 @@ window.addEventListener('load', () => {
   document.getElementById('amountReceive-benef').innerHTML = `${sessAmountBenef} <b>${xof2}</b>`
 })
 
-// DOM Handle
-const cancel = document.getElementById('cancel')
+// Set minutes
+function addZero(num){
+  return num < 10 ? `0${num}`:num;
+}
 
 let modalWrap = null;
-
-const showModal = (message) => {
+const showModalCancel = (message) => {
   if (modalWrap !== null) {
     modalWrap.remove();
   }
@@ -47,7 +67,7 @@ const showModal = (message) => {
           <div class="modal-header bg-light">
             <h4 style='display: flex; align-items: center; justify-content: center;' class="modal-title">
               <i style='color: #ff7675; font-size: 3rem; margin-right: .5rem' class="uil uil-annoyed"></i>
-              <span style='color: #222'>Annulation</span>
+              <span style='color: #222'>Attention...</span>
             </h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -68,12 +88,35 @@ const showModal = (message) => {
   modal.show();
 }
 
-// Return to the home
+// Return to home
+const cancel = document.getElementById('cancel')
+
 cancel.addEventListener('click', () => {
-  showModal('Voulez vous vraiment annuler ?')
+  showModalCancel('Voulez vous vraiment annuler et revenir à la page d\'accueil ?')
 
   const removeAll = document.querySelector('#yes')
   removeAll.addEventListener('click', () => {
+
     window.location = 'index.html'
+
+    sessionStorage.removeItem('NAME');
+    sessionStorage.removeItem('COUNTRY');
+    sessionStorage.removeItem('MODE');
+    sessionStorage.removeItem('PHONE');
+    sessionStorage.removeItem('AMOUNT');
+    sessionStorage.removeItem('XOF');
+
+    sessionStorage.removeItem('NAME-BENEF');
+    sessionStorage.removeItem('COUNTRY-BENEF');
+    sessionStorage.removeItem('MODE-BENEF');
+    sessionStorage.removeItem('PHONE-BENEF');
+    sessionStorage.removeItem('AMOUNT-BENEF');
+    sessionStorage.removeItem('XOF-BENEF');
   })
+})
+
+const sendData = document.getElementById('send')
+
+sendData.addEventListener('click', () => {
+  window.location = 'treatment.html'
 })

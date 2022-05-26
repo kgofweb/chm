@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- ========= MY CSS ========= -->
   <link rel="stylesheet" href="./design/css/style.css">
-  <title>CHAPMONEY</title>
+  <title>ChapMoney</title>
 </head>
 
 <body>
   <!-- ========= LOADER ========= -->
-  <div class="loader" id="load">
+  <!-- <div class="loader" id="load">
     <img src="./design/img/loader-2.gif" alt="loading">
-  </div>
+  </div> -->
   <!-- ========= HEADER ========= -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -48,7 +48,7 @@
         <div class="card">
           <div class="card-body d-flex align-items-center justify-content-sm-evenly">
             <div class="">
-              <h2><span class="services">Services Transfert d'argent.</h2>
+              <h2><span class="services">Serices Transfert d'argent.</h2>
               <p class="fw-light">Transférer de l'argent en toute <br> <span class="fw-normal">Sécurité</span>, <span
                   class="fw-normal">Rapidité</span> et <span class="fw-normal">Fiablilité</span>.</p>
               <button type="button" class="btn btn-primary home-btn">Transfert
@@ -65,7 +65,7 @@
         <!-- ========== START FORM ========== -->
         <section class="first-content col mt-4" id="transfert">
           <!-- ======== ALERT TOAST ========= -->
-          <form action="check.html" method="POST" class="card card-form p-3 mb-4">
+          <form action="check.html" method="POST" class="card card-form p-3 mb-4" class="needs-validation" novalidate>
             <!-- Principal -->
             <div class="row form">
               <!-- =============== EXPEDITEUR ================== -->
@@ -76,10 +76,13 @@
                   </div>
                   <div class="card-body">
                     <!-- Name Exp -->
-                    <div class="mb-3">
+                    <div class="mb-3 has-validation">
                       <i class="uil uil-user-md"></i>
                       <label for="" class="form-label">Nom expéditeur</label>
-                      <input type="text" class="form-control nameExp" name="nameExp" id="nameExp" required>
+                      <input type="text" class="form-control nameExp" name="nameExp" id="nameExp" aria-describedby="inputGroupPrepend" required>
+                      <div class="invalid-feedback">
+                        Please choose a username.
+                      </div>
                     </div>
                     <!-- Choose Country -->
                     <div class="mb-3">

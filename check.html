@@ -9,113 +9,137 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- ========= MY CSS ========= -->
   <link rel="stylesheet" href="./design/css/check.css">
-  <title>CHAPMONEY</title>
+  <title>ChapMoney</title>
 </head>
 
 <body>
   <!-- ========= HEADER ========= -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">CHAPMONEY</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fw-bold" href="#">CHAPMONEY</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Transfert</a>
-          </li>
-        </ul>
-      </div> -->
     </div>
   </nav>
   <!-- ================== MAIN ================== -->
   <main class="main">
     <div class="container">
-      <section>
+      <section class="mb-5">
         <div class="title">
           <h3 class="mt-4 mb-3">Vérification des informations</h3>
         </div>
 
         <div class="card">
           <div class="card-body">
+            <h6 class="text-end mb-3" style="color: #95a5a6;">Effectuer le <span id="date"></span> à <span id="time"></span></h6>
+
             <div class="row">
               <!-- ============== EXP ============= -->
               <div class="col-6 exp">
-                <h5>EXPÉDITEUR</h5>
-                <hr>
-                <!-- Name Exp -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-user-md"></i>
-                  <label class="fs-5">Nom expéditeur: </label>
-                  <span class="fw-normal fs-5" id="name-exp"></span>
-                </div>
-                <!-- Exp Country -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-globe"></i>
-                  <label class="fs-5">Pays d'envoi: </label>
-                  <span class="fw-normal fs-5" id="country-exp"></span>
-                </div>
-                <!-- Exp Mode send -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-signal"></i>
-                  <label class="fs-5">Mode d'envoi: </label>
-                  <span class="fw-normal fs-5" id="modeSend-exp"></span>
-                </div>
-                <!-- Number Phone -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-mobile-android-alt"></i>
-                  <label class="fs-5">N° Téléphone: </label>
-                  <span class="fw-normal fs-5" id="number-exp"></span>
-                </div>
-                <!-- Amount -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-money-insert"></i>
-                  <label class="fs-5">Montant expédié: </label>
-                  <span class="fw-normal fs-5" id="amountSend-exp"></span>
+                <div class="card">
+                  <h5 class="card-header">Expéditeur</h5>
+                    
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <!-- Name Exp -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-user-md"></i>
+                        <label class="fs-5">Nom expéditeur: </label>
+                        <span class="fw-normal fs-5" id="name-exp"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Exp Country -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-globe"></i>
+                        <label class="fs-5">Pays d'envoi: </label>
+                        <span class="fw-normal fs-5" id="country-exp"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Exp Mode send -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-signal"></i>
+                        <label class="fs-5">Mode d'envoi: </label>
+                        <span class="fw-normal fs-5" id="modeSend-exp"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Number Phone -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-mobile-android-alt"></i>
+                        <label class="fs-5">N° Téléphone: </label>
+                        <span class="fw-normal fs-5" id="number-exp"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Amount -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-money-insert"></i>
+                        <label class="fs-5">Montant expédié: </label>
+                        <span class="fw-normal fs-5" id="amountSend-exp"></span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
               <!-- ============== BENEF =================== -->
               <div class="col-6 benef">
-                <h5>BENEFICIAIRE</h5>
-                <hr>
-                <!-- Name Exp -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-user-md"></i>
-                  <label class="fs-5">Nom bénéficiaire: </label>
-                  <span class="fw-normal fs-5" id="name-benef"></span>
-                </div>
-                <!-- Exp Country -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-globe"></i>
-                  <label class="fs-5">Pays de réception: </label>
-                  <span class="fw-normal fs-5" id="country-benef"></span>
-                </div>
-                <!-- Exp Mode send -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-signal"></i>
-                  <label class="fs-5">Mode de réception: </label>
-                  <span class="fw-normal fs-5" id="modeSend-benef"></span>
-                </div>
-                <!-- Number Phone -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-mobile-android-alt"></i>
-                  <label class="fs-5">N° Téléphone: </label>
-                  <span class="fw-normal fs-5" id="number-benef"></span>
-                </div>
-                <!-- Amount -->
-                <div class="name-exp mb-3">
-                  <i class="uil uil-money-withdraw"></i>
-                  <label class="fs-5">Montant reçu: </label>
-                  <span class="fw-normal fs-5" id="amountReceive-benef"></span>
+                <div class="card">
+                  <h5 class="card-header">Bénéficiaire</h5>
+
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <!-- Name Exp -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-user-md"></i>
+                        <label class="fs-5">Nom bénéficiaire: </label>
+                        <span class="fw-normal fs-5" id="name-benef"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Exp Country -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-globe"></i>
+                        <label class="fs-5">Pays de réception: </label>
+                        <span class="fw-normal fs-5" id="country-benef"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Exp Mode send -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-signal"></i>
+                        <label class="fs-5">Mode de réception: </label>
+                        <span class="fw-normal fs-5" id="modeSend-benef"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Number Phone -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-mobile-android-alt"></i>
+                        <label class="fs-5">N° Téléphone: </label>
+                        <span class="fw-normal fs-5" id="number-benef"></span>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <!-- Amount -->
+                      <div class="name-exp mt-2 mb-2">
+                        <i class="uil uil-money-withdraw"></i>
+                        <label class="fs-5">Montant reçu: </label>
+                        <span class="fw-normal fs-5" id="amountReceive-benef"></span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div> 
+            </div>
 
-            <div class="d-flex flex-row-reverse bd-highlight mt-5">
+            <div class="d-flex flex-row-reverse bd-highlight mt-4">
               <button class="btn btn-secondary" id="cancel" type="submit">ANNULER</button>
-              <button class="btn btn-success mx-2" id="check" type="submit">ENVOYER</button>
+              <button class="btn btn-success mx-2" id="send" type="submit">EFFECTUER</button>
             </div>
           </div>
         </div>
