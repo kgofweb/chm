@@ -30,8 +30,6 @@ const total = document.getElementById('total')
 const xof = document.getElementById('xof')
 const xof2 = document.getElementById('xof2')
 
-console.log(montant);
-
 // ==================== Event Listener Sender ==================== //
 count.addEventListener('change', function () {
   // Select Value
@@ -242,7 +240,7 @@ function checkPage(e) {
 // ============== Scroll Reveal ============== //
 const sr = ScrollReveal({
   distance: '90px',
-  duration: 2000,
+  duration: 1000,
 })
 
 sr.reveal(`.home`, { origin: 'top', delay: 300 })

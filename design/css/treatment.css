@@ -52,3 +52,8 @@ body {
 .countdown .sec h2 {
   color: #ff7675;
 }
+
+.infos p > span {
+  font-weight: 700;
+}
+
